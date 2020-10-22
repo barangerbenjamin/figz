@@ -6,8 +6,9 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:strava]
 
   def self.create_from_provider_data(provider_data)
+    email = provider_data.info.name.split(" ").join.downcase + provider_data.uid + "@figz.com"
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
-      user.email = provider_data.info.email
+      user.email = email
       user.password = Devise.friendly_token[0, 20]
     end
   end

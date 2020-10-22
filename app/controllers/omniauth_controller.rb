@@ -2,7 +2,6 @@ class OmniauthController < Devise::OmniauthCallbacksController
 
     def strava
         @user = User.create_from_provider_data(request.env['omniauth.auth'])
-        raise
         if @user.persisted?
             sign_in_and_redirect @user
             set_flash_message(:notice, :success, kind: 'Strava') if is_navigational_format?
