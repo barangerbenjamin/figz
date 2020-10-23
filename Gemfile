@@ -30,6 +30,11 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 
+# Strava Login
+gem 'omniauth'
+gem 'omniauth-strava'
+gem 'activerecord-session_store'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
