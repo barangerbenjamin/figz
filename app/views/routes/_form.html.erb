@@ -1,1 +1,14 @@
-TODO: Form route
+<%= simple_form_for route do |f| %>
+    <%= f.input :name %>
+    <%= f.input :start_location %>
+    <%= f.input :start_latitude %>
+    <%= f.input :start_longitude %>
+    <%= f.input :end_location %>
+    <%= f.input :end_latitude %>
+    <%= f.input :end_longitude %>
+    <%= f.input :distance %>
+    <%= f.input :elevation %>
+    <%= f.input :road_type %>
+    <%= f.submit %>
+<% end %>
+
