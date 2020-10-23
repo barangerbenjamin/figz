@@ -11,6 +11,7 @@ class CreateRoutes < ActiveRecord::Migration[6.0]
       t.float :distance
       t.integer :elevation
       t.string :road_type
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
