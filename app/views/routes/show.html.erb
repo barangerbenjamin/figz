@@ -1,1 +1,6 @@
 <h1>Show of route</h1>
+
+<p><%= @route.name %></p>
+<p><%= @route.start_location %></p>
+
+<p>Delete? <%= link_to "this route", route_path(@route), data: { confirm: "Are you sure?" }, method: :delete %></p>
