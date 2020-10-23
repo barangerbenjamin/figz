@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:strava]
 
   has_many :routes, dependent: :destroy
+  has_many :comments
 
   def self.create_from_provider_data(provider_data)
     email = provider_data.info.name.split(" ").join.downcase + provider_data.uid + "@figz.com"
