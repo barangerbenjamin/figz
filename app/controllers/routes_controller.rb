@@ -5,7 +5,10 @@ class RoutesController < ApplicationController
         @routes = Route.all
     end
 
-    def show;end
+    def show
+        @comment = Comment.new
+        @comments = @route.comments
+    end
 
     def new
         @route = Route.new

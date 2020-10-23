@@ -7,11 +7,12 @@ class CommentsController < ApplicationController
 
     def create
         @comment = Comment.new(comment_params)
+        @comment.route = Route.find(params[:route_id])
         @comment.user = current_user
         if @comment.save
             redirect_to route_path(@comment.route), notice: "comment created"
         else
-            render :new
+            render 'routes/show', route: Route.find(params[:route_id])
         end
     end
 
@@ -34,7 +35,7 @@ class CommentsController < ApplicationController
         @comment = comment.find(params[:id])
     end
     
-    def route_params
-        params.require(:route).permit(:content)
+    def comment_params
+        params.require(:comment).permit(:content)
     end
 end
