@@ -23,7 +23,7 @@ class RoutesController < ApplicationController
 
     def edit; end
 
-    def :update
+    def update
         if @route.update(route_params)
             redirect_to route_path(@route), notice: "Route updated"
         else
