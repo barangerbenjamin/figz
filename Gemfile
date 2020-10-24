@@ -29,7 +29,12 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+
+# Image Hosting
 gem 'cloudinary'
+
+# Geocoding
+gem 'geocoder'
 
 # Strava Login
 gem 'omniauth'
