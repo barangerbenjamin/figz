@@ -36,6 +36,33 @@ ActiveRecord::Schema.define(version: 2020_10_23_214312) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.bigint "route_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["route_id"], name: "index_comments_on_route_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.string "name"
+    t.string "start_location"
+    t.float "start_latitude"
+    t.float "start_longitude"
+    t.string "end_location"
+    t.float "end_latitude"
+    t.float "end_longitude"
+    t.float "distance"
+    t.integer "elevation"
+    t.string "road_type"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_routes_on_user_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
@@ -61,4 +88,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_214312) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "routes"
+  add_foreign_key "comments", "users"
+  add_foreign_key "routes", "users"
 end
