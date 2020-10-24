@@ -6,9 +6,10 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:strava]
 
   has_one_attached :photo
+  has_many :routes, dependent: :destroy
+  has_many :comments
 
   def self.create_from_provider_data(provider_data)
-    # raise
     email = provider_data.info.name.split(" ").join.downcase + provider_data.uid + "@figz.com"
 
     user_params ={}
@@ -17,9 +18,6 @@ class User < ApplicationRecord
 
     user = User.find_by(provider: provider_data.provider, uid: provider_data.uid)
     user ||= User.find_by(email: email)
-
-    # where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
-    # end
 
     if user
       user.update(user_params)
