@@ -34,15 +34,8 @@ class RoutesController < ApplicationController
         else
             render :edit
         end
-    end
-
-    def destroy
-        @route.destroy
-        redirect_to routes_path
-    end
+    end  
     
-    
-
     private
 
     def set_route
