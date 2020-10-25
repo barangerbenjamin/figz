@@ -1,6 +1,6 @@
-<%= simple_form_for route do |f| %>
+<%= simple_form_for route, html: { data: { controller: 'autocomplete' } } do |f| %>
     <%= f.input :name %>
-    <%= f.input :start_location %>
+    <%= f.input :start_location, input_html: { data: { target: 'autocomplete.startLocation', action: 'click->autocomplete#greet' } }%>
     <%= f.input :start_latitude %>
     <%= f.input :start_longitude %>
     <%= f.input :end_location %>
@@ -11,4 +11,3 @@
     <%= f.input :road_type %>
     <%= f.submit %>
 <% end %>
-
