@@ -8,6 +8,7 @@ class RoutesController < ApplicationController
     def show
         @comment = Comment.new
         @comments = @route.comments
+        @likes_count = @route.get_likes.size
     end
 
     def new
