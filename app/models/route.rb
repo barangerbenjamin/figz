@@ -8,14 +8,6 @@ class Route < ApplicationRecord
 
   before_save :lookup_locations
 
-  def like(user)
-    user.likes self
-  end
-
-  def dislike(user)
-    user.dislike self
-  end
-
   private
 
   def lookup_locations

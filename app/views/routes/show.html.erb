@@ -7,9 +7,9 @@
 
 <% if current_user %>
     <% if current_user.liked? @route %>
-        
+        <p data-reflex="click->LikeReflex#dislike" data-route_id="<%= @route.id %>" data-user_id="<%= current_user.id %>">Unlike</p>
     <% else %>
-
+        <p data-reflex="click->LikeReflex#like" data-route_id="<%= @route.id %>" data-user_id="<%= current_user.id %>">like</p>
     <% end %>
     <p>Add a comment</p>
     <%= simple_form_for [@route, @comment] do |f| %>
