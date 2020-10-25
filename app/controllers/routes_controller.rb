@@ -18,6 +18,7 @@ class RoutesController < ApplicationController
         @route = Route.new(route_params)
         @route.user = current_user
         if @route.save
+            @route.liked_by current_user
             redirect_to route_path(@route), notice: "Route created"
         else
             render :new
