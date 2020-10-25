@@ -1,28 +1,22 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "startLocation" ]
+  static targets = [ "start", "end" ]
 
-  greet() {
-    console.log('Hi from stimulus')
+  connect() {
+    document.addEventListener('DOMContentLoaded', () => {
+      let autocompletes = [this.startTarget, this.endTarget];
+      
+      function initAutocomplete() {
+        autocompletes.forEach((autocomplete) => {
+          autocomplete = new google.maps.places.Autocomplete(
+            autocomplete,
+            { types: ["geocode"] }
+          );
+          autocomplete.setFields(["address_component"]);
+        });
+      }
+      initAutocomplete()
+    })
   }
 }
-
-// let autocomplete;
-//   function initAutocomplete() {
-//     autocomplete = new google.maps.places.Autocomplete(
-//       document.getElementById("route_start_location"),
-//       { types: ["geocode"] }
-//     );
-
-//     autocomplete.setFields(["address_component"]);
-//     autocomplete.addListener("place_changed", fillInAddress);
-//   }
-
-//   function fillInAddress() {
-//     const place = autocomplete.getPlace();
-//   }
-
-//   document.addEventListener('DOMContentLoaded', () => {
-//     initAutocomplete()
-//   })
