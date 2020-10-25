@@ -7,7 +7,7 @@ class CommentReflex < ApplicationReflex
   end
 
   def destroy
-    @comment = Comment.find(element.dataset.comment_id)
-    @comment.destroy
+    comment = Comment.find(element.dataset.comment_id)
+    comment.destroy
   end
 end
