@@ -41,6 +41,9 @@ gem 'omniauth'
 gem 'omniauth-strava'
 gem 'activerecord-session_store'
 
+# Upvote
+gem 'acts_as_votable'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
