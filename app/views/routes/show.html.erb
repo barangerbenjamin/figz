@@ -22,7 +22,7 @@
     <% @comments.each do |comment| %>
          <p><%= comment.content %></p>
          <% if comment.user == current_user %>
-            <%= link_to "delete comment", comment_path(comment), data: { confirm: "Are you sure?" }, method: :delete %>
+            <%= link_to "delete comment", comment_path(comment), data: { reflex: "click->CommentReflex#destroy", comment_id: comment.id }, method: :delete %>
          <% end %>
     <% end %>
 <% end %>
