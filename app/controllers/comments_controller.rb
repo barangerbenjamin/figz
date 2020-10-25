@@ -5,17 +5,6 @@ class CommentsController < ApplicationController
         @comments = comment.all
     end
 
-    def create
-        @comment = Comment.new(comment_params)
-        @comment.route = Route.find(params[:route_id])
-        @comment.user = current_user
-        if @comment.save
-            redirect_to route_path(@comment.route), notice: "comment created"
-        else
-            render 'routes/show', route: Route.find(params[:route_id])
-        end
-    end
-
     def update
         if @comment.update(comment_params)
             redirect_to route_path(@comment.route), notice: "comment updated"
