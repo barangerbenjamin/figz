@@ -6,6 +6,11 @@
 <p>Delete? <%= link_to "this route", route_path(@route), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <% if current_user %>
+    <% if current_user.liked? @route %>
+        
+    <% else %>
+
+    <% end %>
     <p>Add a comment</p>
     <%= simple_form_for [@route, @comment] do |f| %>
         <%= f.input :content, as: :text %>
