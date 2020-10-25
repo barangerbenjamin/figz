@@ -6,7 +6,7 @@ class RoutesController < ApplicationController
     end
 
     def show
-        @comment = Comment.new
+        @comment ||= Comment.new
         @comments = @route.comments
         @likes_count = @route.get_likes.size
     end
@@ -34,15 +34,8 @@ class RoutesController < ApplicationController
         else
             render :edit
         end
-    end
-
-    def destroy
-        @route.destroy
-        redirect_to routes_path
-    end
+    end  
     
-    
-
     private
 
     def set_route
