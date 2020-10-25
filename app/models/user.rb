@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:strava]
+  
+  acts_as_voter
 
   has_one_attached :photo
   has_many :routes, dependent: :destroy
@@ -23,7 +25,8 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
-      user[:password] = Devise.friendly_token[0, 20]
+      user.password = Devise.friendly_token[0, 20]
+      user.save
     end
     return user
   end

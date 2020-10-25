@@ -41,6 +41,12 @@ gem 'omniauth'
 gem 'omniauth-strava'
 gem 'activerecord-session_store'
 
+# Upvote
+gem 'acts_as_votable'
+
+# Stimulus reflex
+gem 'stimulus_reflex'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
