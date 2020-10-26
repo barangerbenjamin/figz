@@ -9,6 +9,13 @@ class RoutesController < ApplicationController
         @comment ||= Comment.new
         @comments = @route.comments
         @likes_count = @route.get_likes.size
+        if @route.gpx
+            key = @route.gpx.key
+            fetch_and_parse = FetchAndParseGpx.new(key)
+            fetch_and_parse.fetch_gpx
+            points = fetch_and_parse.parse_gpx
+            @points = points.map { |point| { lat: point[0], lng: point[1]}}
+        end
     end
 
     def new
@@ -18,6 +25,7 @@ class RoutesController < ApplicationController
     def create
         @route = Route.new(route_params)
         @route.user = current_user
+        @route.gpx.attach(params[:file]) if params[:file]
         if @route.save
             @route.liked_by current_user
             redirect_to route_path(@route), notice: "Route created"
@@ -43,6 +51,6 @@ class RoutesController < ApplicationController
     end
     
     def route_params
-        params.require(:route).permit(:name, :start_location, :start_latitude, :start_longitude, :end_location, :end_latitude, :end_longitude, :distance, :elevation, :road_type)
+        params.require(:route).permit(:name, :start_location, :start_latitude, :start_longitude, :end_location, :end_latitude, :end_longitude, :distance, :elevation, :road_type, :gpx)
     end
 end
