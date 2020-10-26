@@ -9,7 +9,7 @@ const initMapbox = () => {
     markers.forEach((marker) => {
       points.push([marker.lng, marker.lat])
     })
-    
+
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
@@ -42,6 +42,14 @@ const initMapbox = () => {
           'line-color': '#d11204',
           'line-width': 5
         }
+      });
+      // fit draw in zoom
+      const bounds = points.reduce(function (bounds, coord) {
+        return bounds.extend(coord);
+        }, new mapboxgl.LngLatBounds(points[0], points[0]));
+         
+      map.fitBounds(bounds, {
+        padding: 20
       });
     });
   }
