@@ -32,6 +32,8 @@ gem 'devise'
 
 # Image Hosting
 gem 'cloudinary'
+# File Hosting
+gem "google-cloud-storage", require: false
 
 # Geocoding
 gem 'geocoder'
