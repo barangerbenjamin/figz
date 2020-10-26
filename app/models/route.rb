@@ -2,11 +2,12 @@ class Route < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   acts_as_votable
+  has_one_attached :gpx
 
-  validates :start_location, presence: true
-  validates :end_location, presence: true
+  # validates :start_location, presence: true
+  # validates :end_location, presence: true
 
-  before_save :lookup_locations
+  # before_save :lookup_locations
 
   private
 

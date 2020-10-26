@@ -32,6 +32,8 @@ gem 'devise'
 
 # Image Hosting
 gem 'cloudinary'
+# File Hosting
+gem "google-cloud-storage", require: false
 
 # Geocoding
 gem 'geocoder'
@@ -46,6 +48,9 @@ gem 'acts_as_votable'
 
 # Stimulus reflex
 gem 'stimulus_reflex'
+
+# Parsing GPX
+gem 'nokogiri'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
