@@ -9,12 +9,13 @@ class RoutesController < ApplicationController
         @comment ||= Comment.new
         @comments = @route.comments
         @likes_count = @route.get_likes.size
-        # if @route.gpx
-        #     key = @route.gpx.key
-            
-        # end
-
-        # @markers = @markers.map { |marker| { lat: marker[0], lng: marker[1]}}
+        if @route.gpx
+            key = @route.gpx.key
+            fetch_and_parse = FetchAndParseGpx.new(key)
+            fetch_and_parse.fetch_gpx
+            points = fetch_and_parse.parse_gpx
+            @points = points.map { |point| { lat: point[0], lng: point[1]}}
+        end
     end
 
     def new

@@ -4,10 +4,10 @@ const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
   if (mapElement) { // only build a map if there's a div#map to inject into
-    const markers = JSON.parse(mapElement.dataset.markers);
+    const latlon_points = JSON.parse(mapElement.dataset.points);
     const points = []
-    markers.forEach((marker) => {
-      points.push([marker.lng, marker.lat])
+    latlon_points.forEach((point) => {
+      points.push([point.lng, point.lat])
     })
 
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;

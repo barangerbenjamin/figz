@@ -49,6 +49,9 @@ gem 'acts_as_votable'
 # Stimulus reflex
 gem 'stimulus_reflex'
 
+# Parsing GPX
+gem 'nokogiri'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
