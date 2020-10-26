@@ -35,12 +35,12 @@ const initMapbox = () => {
         'type': 'line',
         'source': 'route',
         'layout': {
-          'line-join': 'bevel',
-          'line-cap': 'butt'
+          'line-join': 'miter',
+          'line-cap': 'square'
         },
         'paint': {
           'line-color': '#d11204',
-          'line-width': 5
+          'line-width': 3
         }
       });
       // fit draw in zoom
