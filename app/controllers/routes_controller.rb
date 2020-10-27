@@ -14,7 +14,9 @@ class RoutesController < ApplicationController
       fetch_and_parse = FetchAndParseGpx.new(key)
       fetch_and_parse.fetch_gpx
       points = fetch_and_parse.parse_gpx
-      @points = points.map { |point| { lat: point[0], lng: point[1] } }
+      @points = points.map { |point| { lat: point[0], lng: point[1]}}
+      @elevation = [{name: "Elevation", data: fetch_and_parse.parse_elevation}]
+      @name = fetch_and_parse.parse_name
     end
   end
 

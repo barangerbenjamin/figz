@@ -38,6 +38,10 @@ gem "google-cloud-storage", require: false
 # Geocoding
 gem 'geocoder'
 
+# Elevation Chart
+gem 'groupdate' # optional
+gem 'apexcharts'
+
 # Strava Login
 gem 'omniauth'
 gem 'omniauth-strava'
