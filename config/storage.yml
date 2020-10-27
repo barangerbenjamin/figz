@@ -18,7 +18,7 @@ cloudinary:
 #   bucket: your_own_bucket
 google:
   service: GCS
-  project: figs-app
+  project: figz-app
   credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
   bucket: figz
 google_dev:
