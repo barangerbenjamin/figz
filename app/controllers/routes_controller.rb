@@ -9,12 +9,14 @@ class RoutesController < ApplicationController
         @comment ||= Comment.new
         @comments = @route.comments
         @likes_count = @route.get_likes.size
-        if @route.gpx
+        if @route.gpx.attached?
             key = @route.gpx.key
             fetch_and_parse = FetchAndParseGpx.new(key)
             fetch_and_parse.fetch_gpx
             points = fetch_and_parse.parse_gpx
             @points = points.map { |point| { lat: point[0], lng: point[1]}}
+            @elevation = [{name: "Elevation", data: fetch_and_parse.parse_elevation}]
+            @name = fetch_and_parse.parse_name
         end
     end
 
