@@ -9,9 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&libraries=places"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   </head>
-
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
