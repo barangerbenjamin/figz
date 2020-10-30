@@ -6,7 +6,6 @@
       <p><%= @route.start_location %></p>
       <p>Liked <%= @likes_count %> times</p>
       <p>Delete? <%= link_to "this route", route_path(@route), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
       <% if current_user %>
           <% if current_user.liked? @route %>
               <p data-reflex="click->LikeReflex#dislike" data-route_id="<%= @route.id %>" data-user_id="<%= current_user.id %>">Unlike</p>
