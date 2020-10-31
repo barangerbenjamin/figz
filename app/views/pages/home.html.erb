@@ -1,2 +1,66 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner d-flex align-items-center justify-content-center text-white bg-dark">
+  <div class="search ">
+    <h4>Find your next favourite route!</h4>
+    <form class="form-inline my-2 mt-3">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+
+<div class="informations d-flex align-items-center justify-content-center text-center bg-light">
+  <div>
+    <h2>100,000+ routes. 20 million riders. Endless memories.</h2>
+    <p class="p-details mb-5 mt-5">The beauty of nature doesn’t need to be hard to find. Our goal is simple - build the largest collection of hand-curated trail guides, so you can explore the outdoors with confidence. Anytime. Anywhere.</p>
+    <div class="informations-links d-flex justify-content-center align-items-center">
+      <%= link_to "Sign Up for free", new_user_registration_path, class: "btn btn-primary btn-lg mr-3" %>
+      <%= link_to "Get Figz Pro", new_user_registration_path, class: "btn btn-outline-primary btn-lg ml-3" %>
+    </div>
+  </div>
+</div>
+
+<div class="details d-flex align-items-center justify-content-center text-center bg-dark text-white">
+  <div>
+    <h2>Know the details before you go.</h2>
+    <p class="p-details text-muted mb-5 mt-5">Browse hand-curated trail maps as well as trail reviews, photos and activity recordings contributed by a community of hikers, mountain bikers, trail runners and more.</p>
+    <div class="d-flex justify-content-center align-items-center">
+      <%= link_to "Create Route", new_route_path, class: "btn btn-light btn-lg mr-3" %>
+      <%= link_to "Explore routes", routes_path, class: "btn btn-primary btn-lg ml-3"%>
+    </div>
+  </div>
+</div>
+
+
+<div class="d-flex align-items-center justify-content-center text-center bg-light">
+    <h2 class=" my-5">Most famous Figz routes!</h2>
+</div>
+<div class="bg-light">
+  <div class="container py-5">
+    <div class="row">
+      <div class="card col-4">
+        <%= image_tag "home-route1.jpg" %>
+        <div class="card-body">
+          <h5 class="card-title">Southend On Sea</h5>
+          <p class="card-text">What best that to reach the coast for a classic Fish & Chips?</p>
+          <a href="#" class="btn btn-primary">Explore 76 km</a>
+        </div>
+      </div>
+      <div class="card col-4">
+        <%= image_tag "home-route2.jpg" %>
+        <div class="card-body">
+          <h5 class="card-title">St Albans</h5>
+          <p class="card-text">If you like to climb you will be served! This is a Julio's special!</p>
+          <a href="#" class="btn btn-primary">Explore 82 km</a>
+        </div>
+      </div>
+      <div class="card col-4">
+        <%= image_tag "home-route3.jpg" %>
+        <div class="card-body">
+          <h5 class="card-title">Epping forest</h5>
+          <p class="card-text">Best route to get out of London and explore quiet routes.</p>
+          <a href="#" class="btn btn-primary">Explore 147 km</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
