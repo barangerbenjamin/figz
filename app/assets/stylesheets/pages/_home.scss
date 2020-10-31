@@ -1,1 +1,16 @@
-// Specific CSS for your home-page
+.informations, .details {
+  min-height: calc(50vh - 24px);
+}
+
+.p-details {
+  padding: 0 20% 0 20%;
+}
+
+.card {
+  padding: 0 !important;
+  border: none;
+  img {
+    max-width: 100%;
+  }
+}
+
