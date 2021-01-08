@@ -31,12 +31,13 @@ application.load(definitionsFromContext(context))
 
 // External imports
 import "bootstrap";
-
+import AOS from 'aos';
 import { initMapbox } from '../plugins/init_mapbox';
 import ApexCharts from 'apexcharts'
 window.ApexCharts = ApexCharts
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  AOS.init();
 });
 
 import "controllers"

@@ -1,0 +1,11 @@
+body {
+  background: #FFFFFF;
+}
+
+.no-decoration {
+  color: inherit;
+  &:hover {
+    color: #AA00FF;
+    text-decoration: none;
+  }
+}

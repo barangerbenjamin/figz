@@ -1,8 +1,5 @@
 .banner {
-  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('banner.jpg');
-  // background-size: cover !important;
-  // background-position: center center;
-  // background-size: cover;
-  min-height: calc(50vh - 24px); // 48px is navbar height
-  // width: 100%;
+  background-size: cover;
+  background-position: center;
+  min-height: calc(50vh - 35px); // 48px is navbar height
 }
